@@ -10,16 +10,20 @@ module.exports = function validateCourseCalendarInput(data) {
   data.endDate = !isEmpty(data.endDate) ? data.endDate : "";
 
   if (Validator.isEmpty(data.intakeName)) {
-    errors.intakeName = "Intake Name field is required";
+    errors.intakeName = "* Intake Name field is required";
   }
   if (Validator.isEmpty(data.cityName)) {
-    errors.cityName = "City Name field is required";
+    errors.cityName = "* City Name field is required";
   }
   if (Validator.isEmpty(data.startDate)) {
-    errors.startDate = "Start Date field is required";
+    errors.startDate = "* Start Date field is required";
   }
   if (Validator.isEmpty(data.endDate)) {
-    errors.endDate = "End Date field is required";
+    errors.endDate = "* End Date field is required";
   }
+  if (!Validator.isAfter(data.endDate, data.startDate)) {
+    errors.startDate = "* Start Date must be before end Date";
+  }
+
   return { errors, isValid: isEmpty(errors) };
 };

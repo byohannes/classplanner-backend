@@ -3,30 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
-    "bcrypt": "^5.0.0",
+    "aws-sdk": "^2.786.0",
     "cors": "^2.8.5",
-    "dayjs": "^1.8.34",
+    "dayjs": "^1.9.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-jwt": "^6.0.0",
-    "lodash": "^4.17.20",
-    "mongoose": "^5.10.0",
-    "passport": "^0.4.1",
-    "passport-github": "^1.1.0",
-    "passport-google": "^0.3.0",
-    "validator": "^13.1.1"
+    "mongoose": "^5.10.13",
+    "validator": "^13.1.17"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.4"
-  },
-  "proxy": "http://localhost:5000/"
+    "nodemon": "^2.0.6"
+  }
 }

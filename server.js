@@ -1,10 +1,9 @@
 const express = require("express");
-const path = require("path");
-//const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
-
-//dotenv.config({ path: "./config/config.env" });
+const path = require("path");
+dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 const app = express();
@@ -13,8 +12,7 @@ app.use(express.json());
 
 app.use("/api/v1/classes", require("./routes/classes"));
 app.use("/api/v1/bookings", require("./routes/bookings"));
-app.use("/api/v1/courses", require("./routes/courseCalendar"));
-app.use("/api/v1/class/bookings", require("./routes/classBookings"));
+app.use("/api/v1/courses", require("./routes/courseCalendar")); 
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -24,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(
   PORT,

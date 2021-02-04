@@ -1,19 +1,21 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const {
   getBookings,
-  getBooking,
-  addBooking,
+  getClassBookings,
+  createBooking,
   deleteBooking,
   updateBooking,
-} = require("../controllers/bookings");
+  sendEmailToAllVolunteers,
+} = require('../controllers/bookings');
 
-router.route("/").get(getBookings).post(addBooking);
+router.route('/').get(getBookings).post(createBooking);
+router.route('/email/send').post(sendEmailToAllVolunteers);
 
 router
-  .route("/:id")
+  .route('/:id')
   .delete(deleteBooking)
   .put(updateBooking)
-  .get(getBooking);
+  .get(getClassBookings);
 
 module.exports = router;
