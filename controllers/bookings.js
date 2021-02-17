@@ -82,7 +82,7 @@ exports.createBooking = async (req, res) => {
           newBooking.classDate = dayjs(classInfo.date).format('DD/MM/YYYY');
           newBooking.classStartTime = classInfo.startTime;
           newBooking.classEndTime = classInfo.endTime;
-         // await bookingConfirmationEmail(newBooking);
+         await bookingConfirmationEmail(newBooking);
           return res.status(201).json({
             success: true,
             data: newBooking,
