@@ -35,12 +35,7 @@ exports.createClass = async (req, res) => {
         date: req.body.date,
       },
       async (err, result) => {
-        if (result) {
-          return res.status(400).json({
-            success: false,
-            message: "Sorry, the class already exists!",
-          });
-        } else if (err) {
+        if (err) {
           return res.status(500).json({
             success: false,
             error: "Server Error",
